@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,800&display=swap");
+@import './styles/breakpoints.scss';
+
+
+// $red: #e20001;
+// $black: #191919;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+    ul{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+
+    .container{
+      width: 1024px;
+      height: 100%;
+      margin: 0 auto;
+      border: 1px solid red;
+      box-sizing: border-box;
+    @include media('<=desktop'){
+      width: 768px;
+      min-width: 768px;
+    }
+    @include media('<=tablet'){
+      width: 560px;
+      min-width: 560px;
+    }
+    @include media('<=phone'){
+      width: 80vw;
+      min-width: 300px;
+    }
+
+    .wrapper{
+      // padding: 0px 48px;
+      height: 100%;
+    @include media('<=desktop'){
+        padding: 0px 48px;
+    }
+    @include media('<=tablet'){
+      padding: 0px 36px;
+    }
+    @include media('<=phone'){
+      padding: 0px 16px;
+    }
+    }
+    }
+
+}
