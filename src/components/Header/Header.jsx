@@ -5,24 +5,12 @@ import Menu from '../Menu/Menu';
 import { withRouter } from 'react-router-dom';
 
 function Header() {
-    const [state, setState] = useState({
-        initialLoad: false,
-        isClicked: false,
-        menuText: "menu"
-    });
+    const [menuIsClicked, setMenuIsClicked] = useState(false);
+
+
 
     const handleMenu = () => {
-        // console.log('state.initialLoad', state.initialLoad);
-        if (state.initialLoad === false) {
-            setState({ initialLoad: null, isClicked: true, menuText: "close" });
-            console.log('1');
-        } else if (state.isClicked) {
-            setState(prevState => ({ isClicked: !prevState.isClicked, menuText: "menu" }))
-            console.log('2');
-        } else if (!state.isClicked) {
-            setState(prevState => ({ isClicked: !prevState.isClicked, menuText: "close" }))
-            console.log('3');
-        }
+        setMenuIsClicked(prevState => !prevState);
     };
 
     // Work on Disable
@@ -38,12 +26,17 @@ function Header() {
                                 <Link to="/" >NA</Link>
                             </div>
                             <div className="menu">
-                                <button onClick={handleMenu} className="menu-button">{state.menuText}</button>
+                                {/* <button onClick={handleMenu} className="menu-button">{menuIsClicked ? "close" : "menu"}</button> */}
+                                <div onClick={handleMenu} className={menuIsClicked ? "hamburger is-active" : "hamburger"} id="hamburger-9">
+                                    <span className="line"></span>
+                                    <span className="line"></span>
+                                    <span className="line"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Menu state={state} handleMenu={handleMenu} />
+                <Menu menuIsClicked={menuIsClicked} handleMenu={handleMenu} />
             </header>
         </React.Fragment>
     )
