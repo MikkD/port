@@ -2,32 +2,31 @@ import React, { useState } from 'react'
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import Menu from '../Menu/Menu';
+import { withRouter } from 'react-router-dom';
 
 function Header() {
     const [state, setState] = useState({
         initialLoad: false,
-        clicked: null,
+        isClicked: false,
         menuText: "menu"
     });
 
     const handleMenu = () => {
         // console.log('state.initialLoad', state.initialLoad);
         if (state.initialLoad === false) {
-            setState({ initialLoad: null, clicked: true, menuText: "close" });
-            console.log('state.initialLoad === false', state.initialLoad);
-        } else if (state.isClicked === true) {
-            console.log('state.initialLoad', state.initialLoad);
-            console.log('state.isClicked ', state.isClicked);
-            setState(prevState => ({ clicked: !prevState.clicked, menuText: "close" }))
-
-        } else if (state.isClicked === false) {
-            console.log('!state.isClicked ', state.isClicked);
-            setState(prevState => ({ clicked: !prevState.clicked, menuText: "menu" }))
-
+            setState({ initialLoad: null, isClicked: true, menuText: "close" });
+            console.log('1');
+        } else if (state.isClicked) {
+            setState(prevState => ({ isClicked: !prevState.isClicked, menuText: "menu" }))
+            console.log('2');
+        } else if (!state.isClicked) {
+            setState(prevState => ({ isClicked: !prevState.isClicked, menuText: "close" }))
+            console.log('3');
         }
-
-
     };
+
+    // Work on Disable
+
 
     return (
         <React.Fragment>
@@ -39,15 +38,15 @@ function Header() {
                                 <Link to="/" >NA</Link>
                             </div>
                             <div className="menu">
-                                <button onClick={handleMenu} className="menu-button">menu</button>
+                                <button onClick={handleMenu} className="menu-button">{state.menuText}</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Menu />
+                <Menu state={state} handleMenu={handleMenu} />
             </header>
         </React.Fragment>
     )
 }
 
-export default Header
+export default withRouter(Header)
