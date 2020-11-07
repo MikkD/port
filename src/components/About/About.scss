@@ -1,0 +1,49 @@
+@import '../../styles/breakpoints.scss';
+
+.about-wrapper{
+display: flex;
+justify-content: space-between;
+height: 600px;
+align-items: center;
+@include media('<=tablet'){
+flex-direction: column-reverse;
+}
+h1{
+    font-size: 48px;
+    line-height: 1.3em;
+}
+
+    .about-info{
+        width: 60%;
+        min-width: 200px;
+        border: 1px solid blue;
+        @include media('<=tablet'){
+            width: 100%;
+            text-align: center;
+        }
+        p{
+            max-width: 400px;
+            @include media('<=tablet'){
+                max-width: 100%;
+            }
+        }
+    }
+    .about-image{
+        width: 40%;
+        height: 50%;
+        border: 1px solid green;
+        background-image: url('./about1.jpg');
+        background-position: center center;
+        box-sizing: content-box;
+        background-repeat: no-repeat;
+        background-size: contain;
+        @include media('<=tablet'){
+            width: 100%;
+        }
+    }
+
+    .animated-span{
+        display: inline-flex;
+        
+    }
+}

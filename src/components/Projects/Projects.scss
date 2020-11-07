@@ -1,0 +1,31 @@
+.project-content{
+    border-bottom: 1px solid gray;
+    transition: 3s all;
+    mix-blend-mode: difference;
+    &:hover{
+        background-image: url('../Home/about1.jpg');
+        background-position: center center;
+        // box-sizing: content-box;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+.project-title{
+    font-size: 36px;
+}
+.project-info{
+    display: flex;
+    justify-content: flex-end;
+    .project-info-block{
+    border: 1px solid gold;
+    width: 60%;
+        .tech-stack-list{
+        display: flex;
+        li{
+        margin-right:  20px;
+            }
+        }
+
+    }
+}
+
+}
