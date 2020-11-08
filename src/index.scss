@@ -51,13 +51,13 @@ h1{
       // padding: 0px 48px;
       height: 100%;
     @include media('<=desktop'){
-        padding: 0px 48px;
+        // padding: 0px 24px;
     }
     @include media('<=tablet'){
-      padding: 0px 36px;
+      // padding: 0px 36px;
     }
     @include media('<=phone'){
-      padding: 0px 16px;
+      // padding: 0px 16px;
     }
     }
     }
