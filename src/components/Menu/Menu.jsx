@@ -72,10 +72,10 @@ function Menu({ menuIsClicked, handleMenu }) {
                 ease: "power3.inOut",
                 stagger: 0.07
             })
-            // gsap.to(hamburgerMenu.current, {
-            //     duration: 1,
-            //     css: { display: "none" }
-            // })
+            gsap.to(hamburgerMenu.current, {
+                duration: 1,
+                css: { display: "none" }
+            })
         }
 
     }, [menuIsClicked])
