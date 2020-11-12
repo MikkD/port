@@ -10,32 +10,33 @@ import { projectsData } from './utils';
 
 
 
-const styledLine = {
-    backgroundColor: 'rebeccapurple',
-    width: '5px',
-    height: '100%',
-    position: 'absolute',
-    top: '0px',
-    right: '0px'
-}
-const getAutosize = () => styledLine
+
 
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(projectsData['1']);
     const lineRefs = [React.createRef(), React.createRef(), React.createRef(), React.createRef()];
+    const [linePosition, setLinePosition] = useState('top');
+    const prevClickedNumber = useRef(1)
+
 
     useEffect(() => {
-        let yHeight = lineRefs[selectedProject.index].getBoundingClientRect();
-        console.log(yHeight.y = yHeight.y + 50);
-
+        const prevClickedLine = lineRefs[prevClickedNumber.current - 1];
+        const currentClickedLine = lineRefs[prevClickedNumber.current];
+        // console.log('currentClickedLine', currentClickedLine);
+        // console.log('prevClickedLine', prevClickedLine);
 
     }, [selectedProject])
 
 
-    const handleClick = (id) => setSelectedProject(projectsData[`${id}`]);
+    const handleClick = (id) => {
+        prevClickedNumber.current = selectedProject.number
+        const currentClickedLine = lineRefs[prevClickedNumber.current - 1];
 
+        console.log('currentClickedLine', currentClickedLine.style.top = `${25 * selectedProject.number}`);
+        console.log('currentClickedLine', currentClickedLine.style.height = `100%`);
 
-
+        setSelectedProject(projectsData[`${id}`]);
+    }
 
 
     return (
@@ -53,10 +54,8 @@ function Projects() {
                                                 <div className="nav-line-block">
                                                     <div onClick={() => handleClick(el)} className="nav-line-block-number">{el}</div>
                                                     <div
-                                                        // style={selectedProject.number === el ? getAutosize() : null}
-
                                                         ref={domEl => lineRefs[index] = domEl}
-                                                        className={selectedProject.number === el ? "nav-line-block-line" : null}
+                                                        className={selectedProject.number === el ? 'nav-line-block-line' : 'not-active-line'}
                                                     ></div>
                                                 </div>
                                             </a>

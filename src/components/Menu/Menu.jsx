@@ -116,9 +116,9 @@ function Menu({ menuIsClicked, handleMenu }) {
                             </div>
                             <div className="social-links">
                                 <ul>
-                                    <li><Link ref={SocialLink1} href=""><AiFillGithub /></Link></li>
-                                    <li><Link ref={SocialLink2} href=""><AiFillTwitterCircle /></Link></li>
-                                    <li><Link ref={SocialLink3} href=""><AiFillLinkedin /></Link></li>
+                                    <li><Link ref={SocialLink1} to="/"><AiFillGithub /></Link></li>
+                                    <li><Link ref={SocialLink2} to="/"><AiFillTwitterCircle /></Link></li>
+                                    <li><Link ref={SocialLink3} to="/"><AiFillLinkedin /></Link></li>
                                 </ul>
                             </div>
                         </div>
