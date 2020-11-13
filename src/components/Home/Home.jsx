@@ -1,80 +1,63 @@
+import gsap from 'gsap/gsap-core';
 import { _checkPlugin } from 'gsap/gsap-core';
 import React, { useRef, useState, useEffect } from 'react';
 import './Home.scss';
 
-const homeAssets = [
-    {
-        name: 'person',
-        img: require('../../assets/home/me.jpg'),
-        isActive: false,
-        index: 0,
-    },
-    {
-        name: 'engineer',
-        img: require('../../assets/home/fe.png'),
-        isActive: false,
+
+const homeAssets = {
+    person: {
+        img: require('../../assets/home/me1.jpg'),
         index: 1,
     },
-    {
-        name: 'san-jose',
-        img: require('../../assets/home/sj.png'),
-        isActive: false,
+    engineer: {
+        img: require('../../assets/home/fe.png'),
         index: 2,
     },
-    {
-        name: 'hogarth',
-        img: require('../../assets/home/hg.png'),
-        isActive: false,
+    sanjose: {
+        img: require('../../assets/home/sj.png'),
         index: 3,
+    },
+    hogarth: {
+        img: require('../../assets/home/hg.png'),
+        index: 4,
     }
-];
+};
+
 
 
 
 const Home = () => {
-    const [state, setState] = useState(homeAssets);
+    const [activeHover, setActiveHover] = useState({ index: -1 });
 
 
 
     function handleHover(e) {
         const node = e.target;
         const nodeAttrValue = node.getAttribute('name');
-        console.log('HOVER=>NODE_VALUE ', nodeAttrValue);
-        setState(prevState => prevState.map(el => {
-            if (el.name === nodeAttrValue) {
-                return {
-                    ...el,
-                    isActive: true
-                }
-            } else {
-                return {
-                    ...el,
-                    isActive: false
-                }
-            }
-        }))
+        const activeObj = homeAssets[nodeAttrValue];
+        setActiveHover(activeObj)
 
-    };
 
-    const handleHoverLeave = (e) => {
-        const node = e.target;
-        const nodeAttrValue = node.getAttribute('name');
-        console.log('MOUSE_LEAVE', node);
-        setState(prevState => prevState.map(el => {
-            if (el.name === nodeAttrValue) {
-                return {
-                    ...el,
-                    isActive: false
-                }
-            }
-            return el
-        }))
-
+        const textEl = [...document.querySelectorAll('.reg_copy')];
+        gsap.to(textEl, {
+            opacity: 0.2,
+            duration: .7,
+            ease: "power3.inOut",
+        })
     };
 
 
 
+    const handleHoverLeave = () => {
+        setActiveHover('');
+        const textEl = [...document.querySelectorAll('.reg_copy')];
+        gsap.to(textEl, {
+            opacity: 1,
+            duration: .3,
+            ease: "power3.inOut",
+        });
 
+    }
 
 
     return (
@@ -83,49 +66,52 @@ const Home = () => {
                 <div className="wrapper">
                     <div className="home-wrapper">
                         <article>
-
-                            <span className="hello-span"> -HELLO</span>
-                            <h2>I’m
-                                <span className="active-wrapper">
-                                    <TheImage state={state} index={0} />
+                            <div className="hello-div"> -HELLO</div>
+                            <h2>
+                                <span className="reg_copy">I’m </span>
+                                <div className="active-wrapper">
+                                    <TheImage num={1} activeHover={activeHover} />
                                     <strong
                                         name="person"
                                         onMouseOver={handleHover}
-                                        onMouseLeave={handleHoverLeave}> Nick Abramov
+                                        onMouseLeave={handleHoverLeave}>Nick Abramov
                                     </strong>
-                                </span>
-                                    a passionate
-                                    <span className="active-wrapper">
-                                    <TheImage state={state} index={1} />
+                                </div>
+                                <span className="reg_copy"> a passionate </span>
+                                <div className="active-wrapper">
+                                    <TheImage num={2} activeHover={activeHover} />
                                     <strong
                                         name="engineer"
                                         onMouseEnter={handleHover}
-                                        onMouseLeave={handleHoverLeave}> Engineer
-                            </strong>
+                                        onMouseLeave={handleHoverLeave}>Engineer
+                                    </strong>
+                                </div>
+                                <span className="reg_copy"> with several years of experience, starting from the concept up to the final result.
+                                I'm a branding, typography and design lover.
                                 </span>
-                            with several years of experience, starting from the concept up to the final result. I'm a branding, typography and design lover.</h2>
-                            <h2>I’m based in
-                            <span className="active-wrapper">
-                                    <TheImage state={state} index={2} />
+                            </h2>
+                            <h2>
+                                <span className="reg_copy">I’m based in </span>
+                                <div className="active-wrapper">
+                                    <TheImage num={3} activeHover={activeHover} />
                                     <strong
-                                        name="san-jose"
+                                        name="sanjose"
                                         onMouseEnter={handleHover}
                                         onMouseLeave={handleHoverLeave}>Sunnyvale
                                     </strong>
-                                </span>, currently working as
-                                <strong> Frontend Engineer</strong> at
-
-                                <span className="active-wrapper">
-                                    <TheImage state={state} index={3} />
+                                </div>,
+                                <span className="reg_copy"> currently working as</span>
+                                <strong> Frontend Engineer</strong> at <div className="active-wrapper">
+                                    <TheImage num={4} activeHover={activeHover} />
                                     <strong>
                                         <a
                                             name="hogarth"
                                             onMouseEnter={handleHover}
                                             onMouseLeave={handleHoverLeave}
-                                            href="https://www.hogarthww.com/"> Hogarth
-                                        </a>
+                                            href="https://www.hogarthww.com/">Hogarth</a>
+
                                     </strong>
-                                </span>.
+                                </div>.
                             </h2>
                         </article>
                     </div>
@@ -138,8 +124,9 @@ const Home = () => {
 export default Home
 
 
-function TheImage({ state, index }) {
-    const activeObj = state.find(el => el.isActive);
-    return activeObj && activeObj.index === index ? <img src={activeObj.img.default} /> : null
+function TheImage({ activeHover: { index, img }, num }) {
+
+    return <img className={index === num ? "active-img-active" : "active-img"} src={index === num ? img.default : ''} />
+
 
 };
