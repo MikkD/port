@@ -17,7 +17,7 @@ function About() {
                 node.current.innerHTML += `<span class="animated-span">${str[i]}</span>`;
             }
         }
-        // transformString(spanRef, 'Nick Abramov')
+        transformString(spanRef, 'Nick Abramov')
     }, [])
 
     useEffect(() => {
@@ -33,15 +33,16 @@ function About() {
                 amount: 0.2
             }
         })
-    }, [])
+    }, []);
+
+
     return (
         <React.Fragment>
             <div className="container">
                 <div className="wrapper">
                     <div className="about-wrapper">
                         <div className="about-info">
-                            <h3 ref={smallTitleRef}>Nick Abramov</h3>
-                            {/* <h4 ref={spanRef}></h4> */}
+                            <h3 ref={spanRef}></h3>
                             <h1 ref={titleRef}>Frontend Engineer</h1>
                             <p ref={pRef}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur iure, laborum nihil adipisci nulla eligendi sequi, sunt voluptate porro iusto eos repudiandae numquam laudantium amet minus temporibus totam. Dolor?</p>
                             <div className="buttons">
