@@ -3,7 +3,6 @@ import './Projects.scss';
 import gsap from 'gsap';
 import { projectsData } from './utils';
 import { FaReact } from 'react-icons/fa';
-import { FaReact } from 'react-icons/fa';
 import { SiJavascript } from 'react-icons/si';
 import { SiRedux } from 'react-icons/si';
 import { SiHtml5 } from 'react-icons/si';
@@ -19,6 +18,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { CgPushRight } from 'react-icons/cg';
 import { CgArrowLongRight } from 'react-icons/cg';
 import { CgArrowTopRightR } from 'react-icons/cg';
+
 
 
 // TODO_1:
@@ -102,7 +102,7 @@ function Projects() {
                                         {selectedProject.achives.map((el, index) => <li key={index}> {el}</li>)}
                                     </ul>
                                     <ul ref={stackList} className="tech-stack-list">
-                                        {selectedProject.stack.map((el, index) => <li key={index}>{el}</li>)}
+                                        {selectedProject.stack.map((el, index) => <li style={{ color: el.color }} key={index}>{el.icon}</li>)}
                                     </ul>
                                 </div>
                             </div>

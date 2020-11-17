@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,800&display=swap");
-// @import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 @import './styles/breakpoints.scss';
 
 
@@ -10,9 +12,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color:#202122;
+  // font-family:"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    // Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    // font-family: 'Abril Fatface', cursive;
+    font-family: 'Archivo Black', sans-serif;
+  // background-color:#202122;
+  background-color:#646464;
   -webkit-font-smoothing: antialiased;
 
     ul{
@@ -27,6 +32,7 @@ body {
     p,h1,h2,h3,h4,h5{
       padding: 0;
       margin: 0;
+      line-height: 1.5em;
       
 }
 // h1{

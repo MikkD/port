@@ -3,15 +3,18 @@
 
 .home-wrapper{
     .hello-span{
-        letter-spacing: 1px;
+        letter-spacing: -2px;
     }
         h2{
             font-size: 3.4em;
             margin-bottom: 40px;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 1.2;
+            letter-spacing: -2px;
+            // line-height: 1.1;
             // color: gray;
-            letter-spacing: -1.4px;
+            // letter-spacing: -1.4px;
+            
             @include media('<=desktop'){
                 font-size: 3em;
             }
@@ -41,10 +44,12 @@
         strong{
             color:white;
             opacity: 0.9;
-            transition: all 0.2s;
+            transition: all 0.1s;
+            letter-spacing: 0px;
             &:hover{
                 color:white;
                 opacity: 1;
+                letter-spacing: -1px;
         }
             
             }
