@@ -4,7 +4,10 @@ export const projectsData = {
     1: {
         name: 'BONOS',
         description: 'This 9,380-square-foot Water University facility includes operation equipment that clients will use to learn how to minimize water use. It also has spaces to hold seminars',
-        achives: ['lorem', 'lorem', 'lorem', 'lorem', 'lorem',],
+        achives: ['Implemented various features including, accessibility, carousel, pagination along with auto-save functionality.',
+            'Created “Contractor Zone” page to meet clients requirements.',
+            'Created “Project Details” form including data-picker.',
+            'Implemented auto-complete widget by using Google API Places library.',],
         stack: ['Redux', 'React', 'JS', 'HTML', 'CSS'],
         linkUrl: 'https://www.kronos.com/',
         img: require('../../assets/projects/kronos.png'),

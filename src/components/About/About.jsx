@@ -23,7 +23,7 @@ function About() {
     useEffect(() => {
         const allSpans = [...document.querySelectorAll('.animated-span')]
 
-        gsap.from([imgRef.current, smallTitleRef.current, titleRef.current, pRef.current,], {
+        gsap.from([imgRef.current, smallTitleRef.current, titleRef.current, pRef.current], {
             duration: 0.5,
             y: 15,
             delay: .2,

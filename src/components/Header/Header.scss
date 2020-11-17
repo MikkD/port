@@ -1,7 +1,7 @@
 @import '../../styles/breakpoints.scss';
 
 header{
-height: 100px;
+height: 60px;
 border: 1px solid seashell;
 @include media('<=tablet'){
   height: 60px;
@@ -10,7 +10,7 @@ border: 1px solid seashell;
     .header-wrapper{
         position: relative;
         z-index: 10;
-        height: 100px;
+        height: 60px;
         display: flex;
         justify-content: space-between;
         align-items: center;

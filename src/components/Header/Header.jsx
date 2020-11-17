@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import './Header.scss';
-import { Link } from 'react-router-dom';
 import Menu from '../Menu/Menu';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 function Header() {
     const [menuIsClicked, setMenuIsClicked] = useState(false);
-
-
-
-    const handleMenu = () => {
-        setMenuIsClicked(prevState => !prevState);
-    };
-
-    // Work on Disable
-
+    const handleMenu = () => setMenuIsClicked(prevState => !prevState);
 
     return (
         <React.Fragment>
@@ -23,7 +15,9 @@ function Header() {
                     <div className="wrapper">
                         <div className="header-wrapper">
                             <div className="logo">
-                                <Link to="/" >NA</Link>
+                                <Link to="/" onClick={menuIsClicked && handleMenu} >
+                                    <img style={{ width: '50px', height: '50px' }} src={logo} />
+                                </Link>
                             </div>
                             <div className="menu">
                                 {/* <button onClick={handleMenu} className="menu-button">{menuIsClicked ? "close" : "menu"}</button> */}

@@ -5,7 +5,7 @@ import './Home.scss';
 
 const homeAssets = {
     person: {
-        img: require('../../assets/home/me1.jpg'),
+        img: require('../../assets/home/me3.png'),
         index: 1,
     },
     engineer: {
@@ -49,7 +49,7 @@ const useMousePosition = () => {
 
 // HOME
 const Home = () => {
-    const [activeHover, setActiveHover] = useState({ index: -1 });
+    const [activeHover, setActiveHover] = useState({ index: -1, img: '' });
     const { x, y } = useMousePosition();
     const hRef = useRef();
 
@@ -59,15 +59,17 @@ const Home = () => {
         const nodeAttrValue = node.getAttribute('name');
         const activeObj = homeAssets[nodeAttrValue];
 
-        setActiveHover(activeObj);
+
         const textEl = [...document.querySelectorAll('.reg_copy')];
         gsap.to(textEl, { opacity: 0.2, duration: .4, });
+        setActiveHover(activeObj);
     };
 
     const handleHoverLeave = () => {
-        setActiveHover('');
+
         const textEl = [...document.querySelectorAll('.reg_copy')];
         gsap.to(textEl, { opacity: 1, duration: .4, });
+        setActiveHover('');
     };
 
 

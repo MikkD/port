@@ -1,14 +1,32 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './Projects.scss';
 import gsap from 'gsap';
 import { projectsData } from './utils';
+import { FaReact } from 'react-icons/fa';
+import { FaReact } from 'react-icons/fa';
+import { SiJavascript } from 'react-icons/si';
+import { SiRedux } from 'react-icons/si';
+import { SiHtml5 } from 'react-icons/si';
+import { SiCsswizardry } from 'react-icons/si';
+import { FaCcStripe } from 'react-icons/fa';
+import { SiMaterialUi } from 'react-icons/si';
+import { FaBootstrap } from 'react-icons/fa';
+import { FaSass } from 'react-icons/fa';
+import { FaNode } from 'react-icons/fa';
+import { SiFramer } from 'react-icons/si';
+import { SiFirebase } from 'react-icons/si';
+import { AiFillGithub } from 'react-icons/ai';
+import { CgPushRight } from 'react-icons/cg';
+import { CgArrowLongRight } from 'react-icons/cg';
+import { CgArrowTopRightR } from 'react-icons/cg';
+
 
 // TODO_1:
 // ! Problem : Having one useRef() and passing it in loop, will point to the latest DOM element
 // * Solution : Create and array of React.createRef() and use index in map to fill them with relevant DOM element by using callback refs.
 // ! Problem : Clicking between projects numbers triggers animation glitch
 
-s
+
 function animateProjects(firstLoad, ...nodeRefs) {
     gsap.from(nodeRefs, {
         duration: firstLoad ? 1 : 0.3,
@@ -51,17 +69,17 @@ function Projects() {
         <React.Fragment>
             <div className="container">
                 <div className="wrapper">
-                    <h1>Projects</h1>
+                    <h3>Projects</h3>
                     <div className="projects-wrapper">
                         <nav id="project-nav">
                             <ul>
                                 {Object.keys(projectsData).map(el => {
                                     return (
-                                        <li key={el}>
-                                            <div className="nav-line-block">
-                                                <div onClick={() => handleClick(el)} className="nav-line-block-number">{el}</div>
-                                                <div className={selectedProject.number === el ? 'nav-line-block-line' : 'not-active-line'}></div>
-                                            </div>
+                                        <li
+                                            key={el}
+                                            onClick={() => handleClick(el)}
+                                            className={selectedProject.number === el ? 'nav-line-block-line' : 'not-active-line'}
+                                        > {el}
                                         </li>
                                     )
                                 })}
@@ -69,16 +87,19 @@ function Projects() {
                         </nav>
 
                         <div ref={projectContentRef} className="project-content">
+                            <div className="project-title">{selectedProject.name}</div>
                             <div className="project-info">
                                 <a href={selectedProject.linkUrl} className="project-img-link">
-                                    <div ref={imgRef} style={{ backgroundImage: `url(${selectedProject.img.default})` }} className="project-img"></div>
-                                    <div className="project-img-link-title">See the project</div>
+                                    <div ref={imgRef} style={{ backgroundImage: `url(${selectedProject.img.default})` }} className="project-img">
+                                        <div className="project-img-link-layer"></div>
+                                        <div className="project-img-link-title">See the project</div>
+                                    </div>
                                 </a>
                                 <div ref={infoBlockRef} className="project-info-block">
-                                    <div className="project-title">{selectedProject.name}</div>
+                                    {/* <div className="project-title">{selectedProject.name}</div> */}
                                     <p>{selectedProject.description}</p>
-                                    <ul ref={tasksRef}>
-                                        {selectedProject.achives.map((el, index) => <li key={index}>{el}</li>)}
+                                    <ul className="achievements-list" ref={tasksRef}>
+                                        {selectedProject.achives.map((el, index) => <li key={index}> {el}</li>)}
                                     </ul>
                                     <ul ref={stackList} className="tech-stack-list">
                                         {selectedProject.stack.map((el, index) => <li key={index}>{el}</li>)}
