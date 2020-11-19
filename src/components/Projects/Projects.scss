@@ -6,50 +6,42 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif ;
     position: relative;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
     height: 80%;
-    border: 1px solid gold;
-    color: white;
-      opacity: 0.9;
+    opacity: 0.9;
     @include media('<=tablet'){
         flex-direction: column;
+        justify-content: flex-start;
     }
-   
     
     #project-nav{
-        border: 1px solid crimson;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0px ;
+        margin: 0 auto;
         ul{
             padding: 0px;
             width: 100%;
-        }
-        @include media('<=tablet'){
-            width: 100%;
-        ul{
+            @include media('<=tablet'){
             display: flex;
             justify-content: space-around;
-            li{
-                padding: 0px 10px;
+            width: 100%;
             }
         }
-    }
 ul{
     
     li{
         cursor: pointer;
-        border: 1px solid red;
+        // border: 1px solid red;
         text-align: center;
         width: 50px;
         height: 50px;
         background-color: rgba(0,0,0,0.3);
-        display: flex;
+        display: inline-flex;
         justify-content: center;
         align-items: center;
         @include media('<=tablet'){
         width: 100%;
         height: 30px;
+        padding: 0px 10px;
         }
     }
 }
@@ -63,7 +55,8 @@ ul{
 
 .project-title{
     font-size: 36px;
-    padding: 0px 10px;
+    // padding: 0px 10px;
+    text-align: center;
     @include media('<=phone'){
         font-size: 30px;
     }
@@ -76,10 +69,12 @@ ul{
     @include media('<=tablet'){
     flex-direction: column;
     align-items: center;
+    
     }
     .project-img-link{
         position: relative;
         display: flex;
+        // box-shadow: 0px 0px 9px black;
         
         @include media('<=tablet'){
             width: 100%;
@@ -179,6 +174,7 @@ ul{
         font-size: 26px;
         justify-content: space-between;
         margin-top: 10px;
+        padding: 0px 10px;
         @include media('<=phone'){
             margin-top: 5px;
         }

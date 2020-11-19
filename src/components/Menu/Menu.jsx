@@ -19,6 +19,7 @@ function Menu({ menuIsClicked, handleMenu }) {
     const SocialLink1 = useRef();
     const SocialLink2 = useRef();
     const SocialLink3 = useRef();
+    const SocialLinks = useRef();
 
     useEffect(() => {
 
@@ -54,10 +55,10 @@ function Menu({ menuIsClicked, handleMenu }) {
                     amount: 0.2
                 }
             });
-            gsap.from([SocialLink1.current, SocialLink2.current, SocialLink3.current], {
-                duration: 1,
-                y: 150,
-                delay: .2,
+            gsap.from([SocialLinks.current], {
+                duration: .6,
+                y: 350,
+                delay: .4,
                 opacity: 1,
                 ease: "power3.inOut",
                 stagger: {
@@ -115,10 +116,10 @@ function Menu({ menuIsClicked, handleMenu }) {
                                 </nav>
                             </div>
                             <div className="social-links">
-                                <ul>
-                                    <li><Link ref={SocialLink1} to="/"><AiFillGithub /></Link></li>
-                                    <li><Link ref={SocialLink2} to="/"><AiFillTwitterCircle /></Link></li>
-                                    <li><Link ref={SocialLink3} to="/"><AiFillLinkedin /></Link></li>
+                                <ul ref={SocialLinks}>
+                                    <li><Link to="/"><AiFillGithub /></Link></li>
+                                    <li><Link to="/"><AiFillTwitterCircle /></Link></li>
+                                    <li><Link to="/"><AiFillLinkedin /></Link></li>
                                 </ul>
                             </div>
                         </div>

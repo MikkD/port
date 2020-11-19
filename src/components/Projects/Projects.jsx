@@ -29,8 +29,8 @@ import { CgArrowTopRightR } from 'react-icons/cg';
 
 function animateProjects(firstLoad, ...nodeRefs) {
     gsap.from(nodeRefs, {
-        duration: firstLoad ? 1 : 0.3,
-        y: firstLoad ? 10 : 5,
+        duration: firstLoad ? 1 : 0.5,
+        y: firstLoad ? 10 : 6,
         delay: firstLoad ? .3 : .1,
         opacity: 0,
         ease: "power3.inOut",
@@ -44,22 +44,23 @@ function animateProjects(firstLoad, ...nodeRefs) {
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(projectsData['1']);
     const projectContentRef = useRef();
+    const titleRef = useRef();
     const imgRef = useRef();
     const infoBlockRef = useRef();
     const tasksRef = useRef();
     const stackList = useRef();
-    const refsArr = [imgRef, infoBlockRef, tasksRef, stackList];
+    const refsArr = [titleRef, imgRef, infoBlockRef, tasksRef, stackList];
     console.log('RENDER', refsArr);
 
     useEffect(() => {
         console.log('uSEEFFECT1');
-        const refsArr = [imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current];
+        const refsArr = [titleRef.current, imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current];
         animateProjects(true, ...refsArr)
     }, []);
 
     useEffect(() => {
         console.log('uSEEFFECT2, selectedProjects clicked');
-        const refsArr = [imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current]
+        const refsArr = [titleRef.current, imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current]
         animateProjects(false, ...refsArr)
     }, [selectedProject]);
 
@@ -87,7 +88,7 @@ function Projects() {
                         </nav>
 
                         <div ref={projectContentRef} className="project-content">
-                            <div className="project-title">{selectedProject.name}</div>
+                            <div ref={titleRef} className="project-title">{selectedProject.name}</div>
                             <div className="project-info">
                                 <a href={selectedProject.linkUrl} className="project-img-link">
                                     <div ref={imgRef} style={{ backgroundImage: `url(${selectedProject.img.default})` }} className="project-img">

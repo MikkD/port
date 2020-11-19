@@ -5,8 +5,10 @@
 @import './styles/breakpoints.scss';
 
 
-// $red: #e20001;
-// $black: #191919;
+$bgColor: #e20001;
+$fontColor: #191919;
+$hColor: #191919;
+$containerColor: #191919;
 
 html,
 body {
@@ -17,8 +19,9 @@ body {
     // font-family: 'Abril Fatface', cursive;
     font-family: 'Archivo Black', sans-serif;
   // background-color:#202122;
-  background-color:#646464;
-  -webkit-font-smoothing: antialiased;
+  // background-color:#646464;
+  // -webkit-font-smoothing: antialiased;
+  
 
     ul{
       list-style: none;
@@ -33,14 +36,10 @@ body {
       padding: 0;
       margin: 0;
       line-height: 1.5em;
-      
 }
-// h1{
-//   font-size: 48px;
-// }
 h3{
   font-size: 48px;
-  color: white;
+  // color: white;
   // opacity: 0.9;
   @include media('<=phone'){
   font-size: 36px;
@@ -49,7 +48,6 @@ h3{
 
 .App{
   height: 100vh;
-  // width: 100vw;
   overflow: hidden;
 }
     .container{
@@ -58,9 +56,9 @@ h3{
       margin: 0 auto;
       padding: 0px 10px;
       box-sizing: border-box;
-      // border: 1px solid red;
-      background-color: #141516;
-      color:#838b91;
+      // background-color: #141516;
+      background-color: #e7edff;
+      // color: black;
     @include media('<=desktop'){
       width: 768px;
       min-width: 768px;

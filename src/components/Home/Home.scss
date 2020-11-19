@@ -2,14 +2,27 @@
 
 
 .home-wrapper{
-    .hello-span{
-        letter-spacing: -2px;
+    padding: 20px 15px;
+    span{
+        // opacity: 0.7;
+        // color:red;
+        transition: all 0.2s;
+    }
+    .hover_active{
+        opacity: 0.2;
+    } 
+    .hover-inactive{
+        opacity: 0.7;
+    }
+    .hello-div{
+        font-size: 14px;
+        opacity: 0.8;
     }
         h2{
             font-size: 3.4em;
             margin-bottom: 40px;
             font-weight: 400;
-            line-height: 1.2;
+            line-height: 1.1;
             letter-spacing: -2px;
             // line-height: 1.1;
             // color: gray;
@@ -29,29 +42,27 @@
             &:last-child{
                 margin-bottom:0px;
             }
-            strong{
-                color: black;
-            }
+            
         }
    
     .active-wrapper{
         position: relative;
-        mix-blend-mode: difference;
+        // mix-blend-mode: difference;
         display: inline-flex;
         cursor: pointer;
         transition: all 0.3s;
-        
+        z-index: 1;
         strong{
-            color:white;
-            opacity: 0.9;
+            // color:white;
+            // opacity: 0.9;
             transition: all 0.1s;
             letter-spacing: 0px;
+            opacity: 1;
             &:hover{
-                color:white;
-                opacity: 1;
+                // color:white;
+                // opacity: 1;
                 letter-spacing: -1px;
-        }
-            
+                }
             }
         .active-img{
             opacity: 0;
@@ -61,7 +72,6 @@
             z-index: -10;
             transition: all 0.3s;
         }
-     
     .active-img-active{
         mix-blend-mode: difference;
         opacity: 1;
@@ -81,11 +91,5 @@
         max-height: 100px;
         }
     }
-    
-    
-
-
 }
-    
-
 }

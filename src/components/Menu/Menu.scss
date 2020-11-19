@@ -13,7 +13,7 @@
     box-sizing: border-box;
     .menu-layer{
         position: relative;
-        background-color: burlywood;
+        background-color: #e7edff;
         height: 100%;
         overflow: hidden;
         .wrapper{
@@ -32,16 +32,16 @@
                         padding: 0px;
                         margin: 0px;
                         li{
-                            font-size: 5rem;
+                            font-size: 6rem;
                             font-weight: 700;
                             height: 100px;
                             cursor: pointer;
-                            border: 1px solid blue;
                             position: relative;
                             width: 700px;
                             display: inline-flex;
                             align-items: center;
-                            overflow: hidden;
+                            justify-content: center;
+                            // -webkit-font-smoothing: antialiased;
                             @include media('<=tablet'){
                                 width: 450px;
                             }
@@ -66,7 +66,7 @@
                 position: absolute;
                 bottom: 20px;
                 left: 0px;
-                border: 2px solid tomato;
+                // border: 2px solid tomato;
                 width: 100%;
                 box-sizing: border-box;
                 justify-content: center;
@@ -75,7 +75,6 @@
                     /* align-items: center; */
                     padding: 0;
                     width: 400px;
-                    border: 1px solid red;
                     margin: 0 auto;
                     @include media('<=tablet'){
                         width: 300px;
@@ -88,8 +87,13 @@
                         a{  
                             display: inline-flex;
                             padding: 10px 20px;
-                            font-size: 24px;
-                            border: 1px solid green;
+                            font-size: 3em;
+                            transition: all 0.2s;
+                            &:hover{
+                                display: inline-flex;
+                                transform: translateX(1px);
+                                transform: scale(1.1);
+                            }
                         }
                     }
 
