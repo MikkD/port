@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Londrina+Shadow&display=swap");
 @import './styles/breakpoints.scss';
 
 
@@ -15,9 +17,12 @@ body {
   padding: 0;
   margin: 0;
   // font-family:"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    // Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  //   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  // font-family: 'Amita', cursive;
+  font-family: 'Amita', cursive;
+  font-family: 'Londrina Shadow', cursive;
     // font-family: 'Abril Fatface', cursive;
-    font-family: 'Archivo Black', sans-serif;
+    // font-family: 'Archivo Black', sans-serif;
   // background-color:#202122;
   // background-color:#646464;
   // -webkit-font-smoothing: antialiased;
@@ -39,8 +44,7 @@ body {
 }
 h3{
   font-size: 48px;
-  // color: white;
-  // opacity: 0.9;
+  text-align: center;
   @include media('<=phone'){
   font-size: 36px;
   }
@@ -48,17 +52,17 @@ h3{
 
 .App{
   height: 100vh;
+  box-sizing: border-box;
   overflow: hidden;
 }
     .container{
-      width: 1024px;
-      height: 100%;
       margin: 0 auto;
-      padding: 0px 10px;
       box-sizing: border-box;
-      // background-color: #141516;
-      background-color: #e7edff;
-      // color: black;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
     @include media('<=desktop'){
       width: 768px;
       min-width: 768px;
@@ -72,19 +76,6 @@ h3{
       min-width: 300px;
     }
 
-    .wrapper{
-      // padding: 0px 48px;
-      height: 100%;
-    @include media('<=desktop'){
-        // padding: 0px 24px;
-    }
-    @include media('<=tablet'){
-      // padding: 0px 36px;
-    }
-    @include media('<=phone'){
-      // padding: 0px 16px;
-    }
-    }
     }
 
 }

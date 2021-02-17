@@ -55,16 +55,16 @@ function Menu({ menuIsClicked, handleMenu }) {
                     amount: 0.2
                 }
             });
-            gsap.from([SocialLinks.current], {
-                duration: .6,
-                y: 350,
-                delay: .4,
-                opacity: 1,
-                ease: "power3.inOut",
-                stagger: {
-                    amount: .2
-                }
-            });
+            // gsap.from([SocialLinks.current], {
+            //     duration: .6,
+            //     y: 350,
+            //     delay: .4,
+            //     opacity: 1,
+            //     ease: "power3.inOut",
+            //     stagger: {
+            //         amount: .2
+            //     }
+            // });
         }
         else {
             gsap.to([menuLayer.current, secondBgLayer.current], {
@@ -115,13 +115,13 @@ function Menu({ menuIsClicked, handleMenu }) {
                                     </ul>
                                 </nav>
                             </div>
-                            <div className="social-links">
+                            {/* <div className="social-links">
                                 <ul ref={SocialLinks}>
                                     <li><Link to="/"><AiFillGithub /></Link></li>
                                     <li><Link to="/"><AiFillTwitterCircle /></Link></li>
                                     <li><Link to="/"><AiFillLinkedin /></Link></li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

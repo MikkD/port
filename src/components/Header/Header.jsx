@@ -11,11 +11,12 @@ function Header() {
     return (
         <React.Fragment>
             <header>
-                <div className="container">
+                <div className="container-header">
                     <div className="wrapper">
                         <div className="header-wrapper">
                             <div className="logo">
-                                <Link to="/" onClick={menuIsClicked && handleMenu} >
+                                {/* <Link to="/" onClick={menuIsClicked && handleMenu} > */}
+                                <Link to="/" onClick={handleMenu} >
                                     <img style={{ width: '50px', height: '50px' }} src={logo} />
                                 </Link>
                             </div>
@@ -36,4 +37,5 @@ function Header() {
     )
 }
 
-export default withRouter(Header)
+// export default withRouter(Header)
+export default Header

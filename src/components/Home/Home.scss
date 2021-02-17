@@ -1,18 +1,37 @@
 @import '../../styles/breakpoints.scss';
 
-
+// .container-main{
+//     height: 90%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
 .home-wrapper{
-    padding: 20px 15px;
+    padding: 25px 45px;
+    margin:0 auto;
+    height: 95%;
+    // border: 2px solid pink;
+    @include media('<=phone'){
+        padding: 15px 25px;
+    }
+    
+    article{
+    padding: 35px 30px;
+    background: #f3e28978;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 4px #ccc;
+    @include media('<=phone'){
+        padding: 20px 25px;
+    }
+    }
     span{
-        // opacity: 0.7;
-        // color:red;
         transition: all 0.2s;
     }
     .hover_active{
         opacity: 0.2;
     } 
     .hover-inactive{
-        opacity: 0.7;
+        opacity: 0.75;
     }
     .hello-div{
         font-size: 14px;
@@ -22,21 +41,22 @@
             font-size: 3.4em;
             margin-bottom: 40px;
             font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            line-height: 1.1em;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
             // line-height: 1.1;
             // color: gray;
             // letter-spacing: -1.4px;
             
             @include media('<=desktop'){
-                font-size: 3em;
+                font-size: 2.7em;
             }
             @include media('<=tablet'){
-                font-size: 2.6em;
+                font-size: 2.3em;
                 margin-bottom: 30px;
             }
             @include media('<=phone'){
-                font-size: 1.9em;
+                font-size: 1.7em;
                 letter-spacing: -.7px;
             }
             &:last-child{
@@ -53,14 +73,10 @@
         transition: all 0.3s;
         z-index: 1;
         strong{
-            // color:white;
-            // opacity: 0.9;
             transition: all 0.1s;
             letter-spacing: 0px;
             opacity: 1;
             &:hover{
-                // color:white;
-                // opacity: 1;
                 letter-spacing: -1px;
                 }
             }
@@ -81,6 +97,8 @@
         transition: opacity .9s;
         top:-150px;
         right: 150px;
+        top:0px;
+        right: 0px;
         z-index: -10;
         @include media('<=tablet'){
         max-width: 250px;

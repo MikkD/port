@@ -24,8 +24,8 @@ const Home = () => {
     const [activeHover, setActiveHover] = useState({ index: -1, img: '' });
     const [isHovered, setIsHovered] = useState(false);
     const { x, y } = useMousePosition();
+    console.log(x, y);
     const hRef = useRef();
-    console.log('x', x, 'y', y);
 
     function handleHover(e) {
         const node = e.target;
@@ -44,6 +44,7 @@ const Home = () => {
     return (
         <React.Fragment>
             <div className="container">
+                {/* <div className="container-main"> */}
                 <div className="wrapper">
                     <div className="home-wrapper">
                         <article>
@@ -52,7 +53,7 @@ const Home = () => {
                                 <span className={`${isHovered ? 'hover_active' : 'hover-inactive'}`}>I’m </span>
 
                                 <div className="active-wrapper">
-                                    <TheImage num={1} activeHover={activeHover} x={x} y={y} />
+                                    <TheImage className="hover-image" num={1} activeHover={activeHover} x={x} y={y} />
                                     <strong
                                         name="person"
                                         onMouseOver={handleHover}
@@ -62,7 +63,7 @@ const Home = () => {
 
                                 <span className={`${isHovered ? 'hover_active' : 'hover-inactive'}`}> a passionate </span>
                                 <div className="active-wrapper">
-                                    <TheImage num={2} activeHover={activeHover} x={x} y={y} />
+                                    {/* <TheImage num={2} activeHover={activeHover} x={x} y={y} /> */}
                                     <strong
                                         name="engineer"
                                         onMouseEnter={handleHover}
@@ -76,11 +77,11 @@ const Home = () => {
                             <h2>
                                 <span className={`${isHovered ? 'hover_active' : 'hover-inactive'}`}>I’m based in </span>
                                 <div className="active-wrapper">
-                                    <TheImage num={3} activeHover={activeHover} x={x} y={y} />
+                                    {/* <TheImage num={3} activeHover={activeHover} x={x} y={y} /> */}
                                     <strong
                                         name="sanjose"
                                         onMouseEnter={handleHover}
-                                        onMouseLeave={handleHoverLeave}>Sunnyvale
+                                        onMouseLeave={handleHoverLeave}>San Jose
                                     </strong>
                                 </div>,
                                 <span className={`${isHovered ? 'hover_active' : 'hover-inactive'}`}> currently working as</span>
@@ -92,7 +93,6 @@ const Home = () => {
                                             onMouseEnter={handleHover}
                                             onMouseLeave={handleHoverLeave}
                                             href="https://www.hogarthww.com/">Hogarth</a>
-
                                     </strong>
                                 </div>.
                             </h2>
@@ -111,10 +111,8 @@ export default Home
 function TheImage({ activeHover: { index, img }, num, x, y, }) {
     return <img
         src={index === num ? img.default : ''}
-        style={{ transform: `translate(${x > 300 ? x / 2 : x}px, ${y > 450 ? 40 : y}px)` }}
+        // style={{ transform: `translate(${x > 300 ? x / 2 : x}px, ${y > 450 ? 40 : y}px)` }}
+        style={{ transform: `translate(${x / 5}px, ${y / 10}px)` }}
         className={index === num ? "active-img-active" : "active-img"}
-
     />
-
-
 };

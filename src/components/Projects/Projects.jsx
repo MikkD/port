@@ -23,7 +23,8 @@ import { CgArrowTopRightR } from 'react-icons/cg';
 
 // TODO_1:
 // ! Problem : Having one useRef() and passing it in loop, will point to the latest DOM element
-// * Solution : Create and array of React.createRef() and use index in map to fill them with relevant DOM element by using callback refs.
+// * Solution : Create and array of React.createRef() and use index in map 
+//* to fill them with relevant DOM element by using callback refs.
 // ! Problem : Clicking between projects numbers triggers animation glitch
 
 
@@ -88,7 +89,6 @@ function Projects() {
                         </nav>
 
                         <div ref={projectContentRef} className="project-content">
-                            <div ref={titleRef} className="project-title">{selectedProject.name}</div>
                             <div className="project-info">
                                 <a href={selectedProject.linkUrl} className="project-img-link">
                                     <div ref={imgRef} style={{ backgroundImage: `url(${selectedProject.img.default})` }} className="project-img">
@@ -97,7 +97,7 @@ function Projects() {
                                     </div>
                                 </a>
                                 <div ref={infoBlockRef} className="project-info-block">
-                                    {/* <div className="project-title">{selectedProject.name}</div> */}
+                                    <div ref={titleRef} className="project-title">{selectedProject.name}</div>
                                     <p>{selectedProject.description}</p>
                                     <ul className="achievements-list" ref={tasksRef}>
                                         {selectedProject.achives.map((el, index) => <li key={index}> {el}</li>)}
