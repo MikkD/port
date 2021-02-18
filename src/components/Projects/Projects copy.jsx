@@ -17,10 +17,8 @@ import { SiFirebase } from 'react-icons/si';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgPushRight } from 'react-icons/cg';
 import { CgArrowLongRight } from 'react-icons/cg';
-
 import { CgArrowTopRightR } from 'react-icons/cg';
-import { AiOutlineRight } from 'react-icons/ai';
-import { AiOutlineLeft } from 'react-icons/ai';
+
 
 
 // TODO_1:
@@ -33,7 +31,7 @@ import { AiOutlineLeft } from 'react-icons/ai';
 function animateProjects(firstLoad, ...nodeRefs) {
     gsap.from(nodeRefs, {
         duration: firstLoad ? 1 : 0.5,
-        y: firstLoad ? 20 : 6,
+        y: firstLoad ? 10 : 6,
         delay: firstLoad ? .3 : .1,
         opacity: 0,
         ease: "power3.inOut",
@@ -46,52 +44,28 @@ function animateProjects(firstLoad, ...nodeRefs) {
 
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(projectsData['1']);
-    const [width, setWidth] = useState(window.innerWidth);
     const projectContentRef = useRef();
     const titleRef = useRef();
     const imgRef = useRef();
     const infoBlockRef = useRef();
     const tasksRef = useRef();
     const stackList = useRef();
+    const refsArr = [titleRef, imgRef, infoBlockRef, tasksRef, stackList];
+    console.log('RENDER', refsArr);
 
     useEffect(() => {
+        console.log('uSEEFFECT1');
         const refsArr = [titleRef.current, imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current];
         animateProjects(true, ...refsArr)
     }, []);
 
     useEffect(() => {
-        const refsArr = [titleRef.current, imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current];
+        console.log('uSEEFFECT2, selectedProjects clicked');
+        const refsArr = [titleRef.current, imgRef.current, infoBlockRef.current, tasksRef.current, stackList.current]
         animateProjects(false, ...refsArr)
-
     }, [selectedProject]);
 
-
-    useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth)
-        window.addEventListener('resize', handleResize)
-        return function () { window.removeEventListener('resize', handleResize) };
-    });
-
-
-
-    const handlePrevProject = () => {
-        if (selectedProject.number == 1) {
-            const maxNumbOfProjects = Object.keys(projectsData).length;
-            setSelectedProject(projectsData[`${maxNumbOfProjects}`]);
-        } else {
-            setSelectedProject(projectsData[`${Number(selectedProject.number) - 1}`]);
-        }
-    };
-
-    const handleNextProject = () => {
-        const maxNumbOfProjects = Object.keys(projectsData).length;
-        if (selectedProject.number == maxNumbOfProjects) {
-            setSelectedProject(projectsData[1]);
-        } else {
-            setSelectedProject(projectsData[`${Number(selectedProject.number) + 1}`]);
-        }
-    };
-
+    const handleClick = (id) => setSelectedProject(projectsData[`${id}`])
 
     return (
         <React.Fragment>
@@ -99,23 +73,25 @@ function Projects() {
                 <div className="wrapper">
                     <h3>Projects</h3>
                     <div className="projects-wrapper">
+                        <nav id="project-nav">
+                            <ul>
+                                {Object.keys(projectsData).map(el => {
+                                    return (
+                                        <li
+                                            key={el}
+                                            onClick={() => handleClick(el)}
+                                            className={selectedProject.number === el ? 'nav-line-block-line' : 'not-active-line'}
+                                        > {el}
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </nav>
 
                         <div ref={projectContentRef} className="project-content">
-
-                            <button type="button" className="button prev-button" onClick={handlePrevProject}>
-                                {width < 700 ? <AiOutlineLeft /> : 'Prev'}
-                            </button>
-
-                            <button type="button" className="button next-button" onClick={handleNextProject}>
-                                {width < 700 ? <AiOutlineRight /> : 'Next'}
-                            </button >
-
                             <div className="project-info">
                                 <a href={selectedProject.linkUrl} className="project-img-link">
-                                    <div
-                                        ref={imgRef}
-                                        style={{ backgroundImage: `url(${selectedProject.img.default})` }}
-                                        className="project-img">
+                                    <div ref={imgRef} style={{ backgroundImage: `url(${selectedProject.img.default})` }} className="project-img">
                                         <div className="project-img-link-layer"></div>
                                         <div className="project-img-link-title">See the project</div>
                                     </div>
